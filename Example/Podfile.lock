@@ -1,0 +1,16 @@
+PODS:
+  - SwiftUICustomSlider (0.1.0)
+
+DEPENDENCIES:
+  - SwiftUICustomSlider (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftUICustomSlider:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftUICustomSlider: aa4d65d6beaf9d4324a57fc469cd8062a377e5d7
+
+PODFILE CHECKSUM: 326be81a85208175111279e655f2f68769cbcee4
+
+COCOAPODS: 1.11.0.beta.2
