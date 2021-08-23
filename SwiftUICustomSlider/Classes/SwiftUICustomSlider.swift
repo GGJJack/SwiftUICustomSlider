@@ -15,6 +15,7 @@ public struct SwiftUICustomSlider: View {
     
     private var trackHeight: CGFloat = 5
     private var cornerRadius: CGFloat? = 5
+    private var step: CGFloat? = nil
     
     private var activeTrack: AnyView = AnyView(Color.blue)
     private var inactiveTrack: AnyView = AnyView(Color.gray)
@@ -93,14 +94,20 @@ public struct SwiftUICustomSlider: View {
         } else if percent > 1 {
             percent = 1
         }
-        let progress = max.wrappedValue * percent
+        var progress = max.wrappedValue * percent
+        //print("[Drag]Width : \(geo.size.width), Touch : \(value.location.x), Progress : \(progress), Percent : \(percent)")
+        if let step = step {
+            let quotient = Int(progress / step)
+            let remainder = progress.remainder(dividingBy: step)
+            let adder = remainder < step / 2 ? 0 : step
+            progress = CGFloat(quotient) * step + adder
+        }
         if !isDragging {
             isDragging = true
             onProgressStart?(progress)
         }
         self.progress.wrappedValue = progress
         onProgressChange?(progress)
-        print("[Drag]Width : \(geo.size.width), Touch : \(value.location.x), Progress : \(progress), Percent : \(percent)")
     }
     
     private func endProgress(value: DragGesture.Value, geo: GeometryProxy) {
@@ -110,13 +117,25 @@ public struct SwiftUICustomSlider: View {
         } else if 0.99 < percent {
             percent = 1
         }
-        let progress = max.wrappedValue * percent
+        var progress = max.wrappedValue * percent
+        //print("[End]Width : \(geo.size.width), Touch : \(value.location.x), Progress : \(progress), Percent : \(percent)")
+        if let step = step {
+            let quotient = Int(progress / step)
+            let remainder = progress.remainder(dividingBy: step)
+            let adder = remainder < step / 2 ? 0 : step
+            progress = CGFloat(quotient) * step + adder
+        }
         self.progress.wrappedValue = progress
         onProgressEnd?(progress)
         self.isDragging = false
-        print("[End]Width : \(geo.size.width), Touch : \(value.location.x), Progress : \(progress), Percent : \(percent)")
     }
     
+    public func step(_ value: CGFloat?) -> Self {
+        var mySelf = self
+        mySelf.step = value
+        return mySelf
+    }
+
     public func indicator(_ view: AnyView?) -> Self {
         var mySelf = self
         mySelf.indicator = view
@@ -156,6 +175,12 @@ public struct SwiftUICustomSlider: View {
     public func cornerRadius(_ value: CGFloat?) -> Self {
         var mySelf = self
         mySelf.cornerRadius = value
+        return mySelf
+    }
+    
+    public func step(_ value: CGFloat) -> Self {
+        var mySelf = self
+        mySelf.step = value
         return mySelf
     }
     
