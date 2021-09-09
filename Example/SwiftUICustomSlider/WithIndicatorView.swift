@@ -57,7 +57,7 @@ struct WithIndicatorView: View {
                     })
                     .padding(EdgeInsets(top: 40, leading: 20, bottom: 10, trailing: 20))
                 SwiftUICustomSlider($indicatorAnimate3Value)
-                    .activeTrack(AnyView(Color.green))
+                    .activeTrack(AnyView(Color.orange))
                     .indicator(nil)
                     .valueIndicator(AnyView(Text("\(Int(indicatorAnimate3Value))").padding(EdgeInsets(top: 2, leading: 10, bottom: 2, trailing: 10)).background(Color.white).cornerRadius(14).shadow(radius: 3).animation(animation)))
                     .valueIndicatorPosition(.center)

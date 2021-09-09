@@ -22,6 +22,7 @@ public struct SwiftUICustomSlider: View {
     private var indicator: AnyView? = AnyView(Circle().fill(Color.white).shadow(radius: 3).frame(width: 20, height: 20, alignment: .center))
     private var valueIndicator: AnyView? = nil
     private var valueIndicatorPosition: ValueIndicatorPosition = .top(offset: 2)
+    private var isEnabled: Bool = true
     
     private var onProgressStart: ((CGFloat) -> Void)? = nil
     private var onProgressChange: ((CGFloat) -> Void)? = nil
@@ -88,6 +89,7 @@ public struct SwiftUICustomSlider: View {
     }
     
     private func updateProgress(value: DragGesture.Value, geo: GeometryProxy) {
+        if !isEnabled { return }
         var percent = (value.location.x / geo.size.width)
         if percent < 0 {
             percent = 0
@@ -111,6 +113,7 @@ public struct SwiftUICustomSlider: View {
     }
     
     private func endProgress(value: DragGesture.Value, geo: GeometryProxy) {
+        if !isEnabled { return }
         var percent = (value.location.x / geo.size.width)
         if percent < 0.01 {
             percent = 0
@@ -201,11 +204,23 @@ public struct SwiftUICustomSlider: View {
         mySelf.onProgressEnd = listener
         return mySelf
     }
+    
+    public func userInput(_ isUserInputable: Bool) -> Self {
+        var mySelf = self
+        mySelf.isEnabled = isUserInputable
+        return mySelf
+    }
 }
 
 public struct ChildSizeReader<Content: View>: View {
-    @Binding var size: CGSize
+    var size: Binding<CGSize>
     let content: () -> Content
+    
+    public init(size: Binding<CGSize>, content: @escaping () -> Content) {
+        self.size = size
+        self.content = content
+    }
+    
     public var body: some View {
         ZStack {
             content()
@@ -217,7 +232,7 @@ public struct ChildSizeReader<Content: View>: View {
                 )
         }
         .onPreferenceChange(SizePreferenceKey.self) { preferences in
-            self.size = preferences
+            self.size.wrappedValue = preferences
         }
     }
 }

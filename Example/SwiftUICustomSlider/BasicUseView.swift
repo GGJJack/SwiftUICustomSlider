@@ -15,6 +15,8 @@ struct BasicUseView: View {
     @State var rectIndicatorProgress: CGFloat = 50
     @State var notIndicatorProgress: CGFloat = 70
     @State var stepProgress: CGFloat = 90
+    @State var sizeProgress: CGFloat = 70
+    @State var sizeProgressPressed: Bool = false
 
     var body: some View {
         GeometryReader { geometry in
@@ -41,6 +43,14 @@ struct BasicUseView: View {
                 SwiftUICustomSlider($stepProgress)
                     .activeTrack(AnyView(Color.pink))
                     .step(10)
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                
+                SwiftUICustomSlider($sizeProgress)
+                    .activeTrack(AnyView(Color.purple))
+                    .trackSize(sizeProgressPressed ? 20 : 8)
+                    .indicator(nil)
+                    .onStartProgress({ _ in withAnimation { sizeProgressPressed = true } })
+                    .onEndProgress({ _ in withAnimation { sizeProgressPressed = false } })
                     .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
             }
         }
