@@ -21,8 +21,8 @@ struct MainView: View {
                 NavigationLink(destination: WithIndicatorView()) {
                     Text("With indicator")
                 }
-                NavigationLink(destination: WithAnimationView()) {
-                    Text("With animation")
+                NavigationLink(destination: ValueProgressView()) {
+                    Text("Value progress")
                 }
             }
             .navigationBarTitle("Home")

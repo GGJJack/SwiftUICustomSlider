@@ -37,6 +37,11 @@ public struct SwiftUICustomSlider: View {
         self.max = max
     }
     
+    public init(_ progress: Binding<CGFloat>, max: CGFloat) {
+        self.progress = progress
+        self.max = Binding.constant(max)
+    }
+    
     public var body: some View {
         GeometryReader { geo in
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {

@@ -10,7 +10,7 @@
 		05019E8B704EF3A9F1947456 /* Pods_SwiftUICustomSlider_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9B4B438D8FC497EECF4CCE /* Pods_SwiftUICustomSlider_Example.framework */; };
 		2FD00E3726CFA28C0025096B /* BasicUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD00E3626CFA28C0025096B /* BasicUseView.swift */; };
 		2FD00E3926CFA4B00025096B /* WithIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD00E3826CFA4B00025096B /* WithIndicatorView.swift */; };
-		2FD00E3B26CFA4B90025096B /* WithAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD00E3A26CFA4B90025096B /* WithAnimationView.swift */; };
+		2FD00E3B26CFA4B90025096B /* ValueProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD00E3A26CFA4B90025096B /* ValueProgressView.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -33,7 +33,7 @@
 		0C3369A57A92E53414330EDB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2FD00E3626CFA28C0025096B /* BasicUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUseView.swift; sourceTree = "<group>"; };
 		2FD00E3826CFA4B00025096B /* WithIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithIndicatorView.swift; sourceTree = "<group>"; };
-		2FD00E3A26CFA4B90025096B /* WithAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithAnimationView.swift; sourceTree = "<group>"; };
+		2FD00E3A26CFA4B90025096B /* ValueProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueProgressView.swift; sourceTree = "<group>"; };
 		337CC3BA64981DD78AFBE43D /* Pods-SwiftUICustomSlider_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUICustomSlider_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUICustomSlider_Tests/Pods-SwiftUICustomSlider_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		36F68E0DC133916AE3CA0992 /* SwiftUICustomSlider.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftUICustomSlider.podspec; path = ../SwiftUICustomSlider.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4B10ADACB32C565C3BB87D5C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				2FD00E3626CFA28C0025096B /* BasicUseView.swift */,
 				2FD00E3826CFA4B00025096B /* WithIndicatorView.swift */,
-				2FD00E3A26CFA4B90025096B /* WithAnimationView.swift */,
+				2FD00E3A26CFA4B90025096B /* ValueProgressView.swift */,
 			);
 			name = "Example for SwiftUICustomSlider";
 			path = SwiftUICustomSlider;
@@ -338,7 +338,7 @@
 				2FD00E3726CFA28C0025096B /* BasicUseView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				2FD00E3926CFA4B00025096B /* WithIndicatorView.swift in Sources */,
-				2FD00E3B26CFA4B90025096B /* WithAnimationView.swift in Sources */,
+				2FD00E3B26CFA4B90025096B /* ValueProgressView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
